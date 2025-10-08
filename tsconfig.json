@@ -4,6 +4,8 @@
   "exclude": ["dist"],
   "compilerOptions": {
     "baseUrl": ".",
+    "module": "ESNext",
+    "target": "ESNext",
     "paths": {
       "@src/*": ["src/*"]
     }
