@@ -51,4 +51,4 @@ jobs:
             npm ci
             npm install astro
             npm install send server-destroy
-            PORT=8085 pm2 restart colle-pratique-app || PORT=8085 pm2 start entry.mjs --name colle-pratique-app
+            PORT=8084 pm2 restart colle-pratique-app || PORT=8084 pm2 start entry.mjs --name colle-pratique-app
