@@ -5,9 +5,7 @@ export async function POST({ request }) {
   const data = await request.json();
   console.log("Received data to save:", data);
   try {
-    const record = await pb
-      .collection(Collections.Svg)
-      .update(data.id, data);
+    const record = await pb.collection(Collections.Svgs).update(data.id, data);
     console.log("SVG saved with ID:", record.id);
 
     return new Response(JSON.stringify({ success: true, id: record.id }), {
@@ -15,9 +13,12 @@ export async function POST({ request }) {
     });
   } catch (error) {
     console.error("Error saving SVG:", error);
-    return new Response(JSON.stringify({ success: false, error: error.message }), {
-      headers: { "Content-Type": "application/json" },
-      status: 500,
-    });
+    return new Response(
+      JSON.stringify({ success: false, error: error.message }),
+      {
+        headers: { "Content-Type": "application/json" },
+        status: 500,
+      }
+    );
   }
 }
